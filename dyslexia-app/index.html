@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dyslexia Support App</title>
+    <!-- Link to CSS Files -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <link rel="stylesheet" href="css/games.css" />
+    <!-- Link to OpenDyslexic Font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=OpenDyslexic&display=swap"
+    />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <h1>Dyslexia Support App</h1>
+      <button id="toggle-dark-mode" aria-label="Toggle Dark Mode">🌙</button>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Book Upload Section -->
+      <section id="book-upload-section">
+        <h2>Upload Your Book</h2>
+        <input
+          type="file"
+          id="bookUpload"
+          accept=".pdf,.epub,.txt"
+          aria-label="Upload Book"
+        />
+        <div id="bookDisplay" tabindex="0" aria-label="Book Content"></div>
+      </section>
+
+      <!-- Customization Options -->
+      <section id="customization-section">
+        <h2>Customize Your Reading Experience</h2>
+        <label for="fontStyle">Font Style:</label>
+        <select id="fontStyle" aria-label="Select Font Style">
+          <option value="OpenDyslexic">OpenDyslexic</option>
+          <option value="Arial">Arial</option>
+          <option value="Verdana">Verdana</option>
+          <!-- Add more fonts as needed -->
+        </select>
+
+        <label for="fontColor">Font Color:</label>
+        <input
+          type="color"
+          id="fontColor"
+          value="#000000"
+          aria-label="Select Font Color"
+        />
+
+        <label for="backgroundColor">Background Color:</label>
+        <input
+          type="color"
+          id="backgroundColor"
+          value="#FFFFFF"
+          aria-label="Select Background Color"
+        />
+
+        <label for="lineSpacing">Line Spacing:</label>
+        <input
+          type="range"
+          id="lineSpacing"
+          min="1"
+          max="2.5"
+          step="0.1"
+          value="1.6"
+          aria-label="Adjust Line Spacing"
+        />
+
+        <label for="textMargin">Text Margin:</label>
+        <input
+          type="range"
+          id="textMargin"
+          min="0"
+          max="50"
+          step="1"
+          value="10"
+          aria-label="Adjust Text Margin"
+        />
+      </section>
+
+      <!-- Text-to-Speech Section -->
+      <section id="tts-section">
+        <h2>Text-to-Speech</h2>
+        <button id="startTTS">Start Reading</button>
+        <button id="stopTTS">Stop Reading</button>
+        <label for="voiceSelect">Choose Voice:</label>
+        <select id="voiceSelect"></select>
+        <label for="rateSlider">Speech Rate:</label>
+        <input
+          type="range"
+          id="rateSlider"
+          min="0.5"
+          max="2"
+          step="0.1"
+          value="1"
+        />
+      </section>
+
+      <!-- Games Section -->
+      <section id="games-section">
+        <h2>Memory & Problem-Solving Games</h2>
+        <button id="memoryMatchingGame">Play Memory Matching Game</button>
+        <button id="sequenceRecallGame">Play Sequence Recall Game</button>
+        <button id="puzzleSolverGame">Play Puzzle Solver Game</button>
+        <div id="game-container"></div>
+      </section>
+
+      <!-- Additional Features Section -->
+      <section id="additional-features-section">
+        <h2>Additional Features</h2>
+        <button id="startSTT">Start Speech-to-Text</button>
+        <div id="speechOutput"></div>
+
+        <button id="highlightText">Highlight Selected Text</button>
+
+        <form id="dictionaryForm">
+          <input
+            type="text"
+            id="dictionaryInput"
+            placeholder="Enter word to look up"
+          />
+          <button type="submit">Look Up</button>
+        </form>
+        <div id="definitionDisplay"></div>
+
+        <div id="progress-tracker">
+          <p>Reading Progress:</p>
+          <div id="progressBarContainer">
+            <div id="progressBar"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2024 Dyslexia Support App. All Rights Reserved.</p>
+      </footer>
+    </main>
+
+    <!-- Link to JS Files -->
+    <script src="js/main.js"></script>
+    <script src="js/bookUpload.js"></script>
+    <script src="js/customization.js"></script>
+    <script src="js/textToSpeech.js"></script>
+    <script src="js/games/memoryMatching.js"></script>
+    <script src="js/games/sequenceRecall.js"></script>
+    <script src="js/games/puzzleSolver.js"></script>
+    <script src="js/additionalFeatures/speechToText.js"></script>
+    <script src="js/additionalFeatures/highlighting.js"></script>
+    <script src="js/additionalFeatures/dictionary.js"></script>
+    <script src="js/additionalFeatures/progressTracker.js"></script>
+    <script src="js/additionalFeatures/lineSpacing.js"></script>
+    <script src="js/additionalFeatures/darkMode.js"></script>
+    <script src="js/additionalFeatures/wordTracking.js"></script>
+    <script src="js/additionalFeatures/simplifiedLayout.js"></script>
+    <script src="js/additionalFeatures/userProfiles.js"></script>
+    <script src="js/additionalFeatures/accessibility.js"></script>
+    <script src="js/utilities.js"></script>
+  </body>
+</html>

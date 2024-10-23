@@ -1,0 +1,497 @@
+/* games.css */
+
+/* 
+    Memory Matching Game Styles 
+    - Specific styles for the Memory Matching Game.
+*/
+
+#memory-game h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#memory-game #game-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+#memory-game #game-stats p {
+  font-size: 1.2em;
+}
+
+#memory-grid .card {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  cursor: pointer;
+  perspective: 1000px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: transform 0.6s;
+}
+
+#memory-grid .card.flip {
+  transform: rotateY(180deg);
+}
+
+#memory-grid .card .front-face,
+#memory-grid .card .back-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+#memory-grid .card .front-face {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+#memory-grid .card .front-face img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#memory-grid .card .back-face {
+  background-color: #007bff;
+  transform: rotateY(0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#memory-grid .card .back-face::after {
+  content: "🂠";
+  font-size: 2em;
+  color: #ffffff;
+}
+
+/* 
+    Puzzle Solver Game Styles 
+    - Specific styles for the Puzzle Solver Game.
+*/
+
+#puzzle-game h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#puzzle-game #puzzle-controls {
+  margin-top: 15px;
+}
+
+#puzzle-game #puzzle-controls button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#puzzle-game #puzzle-controls button:hover {
+  background-color: #218838;
+}
+
+#puzzle-game #puzzle-stats {
+  margin-top: 15px;
+  font-size: 1.2em;
+}
+
+/* 
+    Sequence Recall Game Styles 
+    - Specific styles for the Sequence Recall Game.
+*/
+
+#sequence-recall-game {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#sequence-recall-game h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#sequence-recall-game #sequence-display {
+  margin: 20px 0;
+  font-size: 2em;
+  min-height: 50px;
+}
+
+#sequence-recall-game #input-sequence {
+  width: 80%;
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+#sequence-recall-game #submit-sequence {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ffc107;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#sequence-recall-game #submit-sequence:hover {
+  background-color: #e0a800;
+}
+
+#sequence-recall-game #sequence-stats {
+  margin-top: 15px;
+  font-size: 1.2em;
+}
+
+/* 
+    General Game Styling 
+    - Common styles for all games to ensure consistency.
+*/
+
+#game-container .game {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+button.game-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #17a2b8;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.game-button:hover {
+  background-color: #138496;
+}
+
+/* 
+    Responsive Design for Games 
+    - Ensures games are playable on various screen sizes.
+*/
+
+@media (max-width: 768px) {
+  #memory-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  #puzzle-canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  #sequence-recall-game #input-sequence {
+    width: 100%;
+  }
+}
+
+/* 
+    Accessibility Enhancements for Games 
+    - Focus states and visual cues for better keyboard navigation.
+*/
+
+.card:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+button:focus {
+  outline: 2px solid #ffc107;
+  outline-offset: 2px;
+}
+
+/* 
+    Animations for Games 
+    - Smooth transitions and animations for interactive elements.
+*/
+
+.card {
+  transition: transform 0.6s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+#sequence-recall-game #submit-sequence {
+  transition: background-color 0.3s;
+}
+
+/* 
+    Sound Effects Integration 
+    - Ensures sound effects are in sync with game actions.
+*/
+
+audio {
+  display: none; /* Hide audio elements */
+}
+
+/* games.css */
+
+/* 
+    Memory Matching Game Styles 
+    - Specific styles for the Memory Matching Game.
+*/
+
+#memory-game h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#memory-game #game-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+#memory-game #game-stats p {
+  font-size: 1.2em;
+}
+
+#memory-grid .card {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  cursor: pointer;
+  perspective: 1000px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: transform 0.6s;
+}
+
+#memory-grid .card.flip {
+  transform: rotateY(180deg);
+}
+
+#memory-grid .card .front-face,
+#memory-grid .card .back-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+#memory-grid .card .front-face {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+#memory-grid .card .front-face img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#memory-grid .card .back-face {
+  background-color: #007bff;
+  transform: rotateY(0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#memory-grid .card .back-face::after {
+  content: "🂠";
+  font-size: 2em;
+  color: #ffffff;
+}
+
+/* 
+    Puzzle Solver Game Styles 
+    - Specific styles for the Puzzle Solver Game.
+*/
+
+#puzzle-game h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#puzzle-game #puzzle-controls {
+  margin-top: 15px;
+}
+
+#puzzle-game #puzzle-controls button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#puzzle-game #puzzle-controls button:hover {
+  background-color: #218838;
+}
+
+#puzzle-game #puzzle-stats {
+  margin-top: 15px;
+  font-size: 1.2em;
+}
+
+/* 
+    Sequence Recall Game Styles 
+    - Specific styles for the Sequence Recall Game.
+*/
+
+#sequence-recall-game {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#sequence-recall-game h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#sequence-recall-game #sequence-display {
+  margin: 20px 0;
+  font-size: 2em;
+  min-height: 50px;
+}
+
+#sequence-recall-game #input-sequence {
+  width: 80%;
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+#sequence-recall-game #submit-sequence {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ffc107;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#sequence-recall-game #submit-sequence:hover {
+  background-color: #e0a800;
+}
+
+#sequence-recall-game #sequence-stats {
+  margin-top: 15px;
+  font-size: 1.2em;
+}
+
+/* 
+    General Game Styling 
+    - Common styles for all games to ensure consistency.
+*/
+
+#game-container .game {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+button.game-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #17a2b8;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.game-button:hover {
+  background-color: #138496;
+}
+
+/* 
+    Responsive Design for Games 
+    - Ensures games are playable on various screen sizes.
+*/
+
+@media (max-width: 768px) {
+  #memory-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  #puzzle-canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  #sequence-recall-game #input-sequence {
+    width: 100%;
+  }
+}
+
+/* 
+    Accessibility Enhancements for Games 
+    - Focus states and visual cues for better keyboard navigation.
+*/
+
+.card:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+button:focus {
+  outline: 2px solid #ffc107;
+  outline-offset: 2px;
+}
+
+/* 
+    Animations for Games 
+    - Smooth transitions and animations for interactive elements.
+*/
+
+.card {
+  transition: transform 0.6s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+#sequence-recall-game #submit-sequence {
+  transition: background-color 0.3s;
+}
+
+/* 
+    Sound Effects Integration 
+    - Ensures sound effects are in sync with game actions.
+*/
+
+audio {
+  display: none; /* Hide audio elements */
+}

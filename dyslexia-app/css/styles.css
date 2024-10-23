@@ -1,0 +1,491 @@
+/* styles.css */
+
+/* 
+    Reset and Base Styles 
+    - Ensures consistency across different browsers by resetting default styles.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "OpenDyslexic", Arial, sans-serif; /* Dyslexia-friendly font */
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme changes */
+}
+
+/* 
+    Header Styling 
+    - Fixed at the top with a subtle background color.
+    - Contains the app title and Dark Mode toggle button.
+*/
+header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensures the header stays on top */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+header button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+header button:hover {
+  transform: scale(1.1); /* Slightly enlarges the button on hover */
+}
+
+/* 
+    Main Content Styling 
+    - Adds padding around the main content area.
+*/
+main {
+  padding: 20px;
+}
+
+/* 
+    Section Styling 
+    - Separates different sections with margins and titles.
+*/
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* 
+    Form Elements Styling 
+    - Styles labels, inputs, selects, and buttons for consistency.
+*/
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input[type="file"],
+input[type="color"],
+input[type="range"],
+select,
+input[type="text"],
+button {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 1em;
+}
+
+button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* 
+    Book Display Styling 
+    - Creates a scrollable area with a border and padding.
+    - Uses a dyslexia-friendly font and adjustable line spacing.
+*/
+#bookDisplay {
+  border: 1px solid #ccc;
+  padding: 15px;
+  height: 400px;
+  overflow-y: scroll;
+  margin-top: 15px;
+  background-color: #fafafa;
+  font-size: 1.1em;
+  white-space: pre-wrap; /* Preserves whitespace and wraps text */
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  border-radius: 5px;
+}
+
+/* 
+    Highlighted Text 
+    - Styles the highlighted words with a background color.
+*/
+.highlight {
+  background-color: yellow;
+}
+
+/* 
+    Game Container Styling 
+    - Provides space for active games and centers the content.
+*/
+#game-container {
+  margin-top: 20px;
+  min-height: 400px; /* Ensures sufficient space for games */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+    Footer Styling 
+    - Simple and centered footer with a light background.
+*/
+footer {
+  background-color: #f0f0f0;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em;
+  color: #555555;
+}
+
+/* 
+    Additional Styling for Sections 
+    - Ensures consistent layout and spacing within different sections.
+*/
+#customization-section,
+#tts-section,
+#games-section,
+#additional-features-section {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 
+    Customization Controls Styling 
+    - Styles sliders and selects within the customization section.
+*/
+#customization-section input[type="range"] {
+  width: 100%;
+}
+
+#customization-section label {
+  margin-top: 20px;
+}
+
+#tts-section button {
+  margin-right: 10px;
+}
+
+/* 
+    Memory Games Styling 
+    - Styles specific to the Memory Matching Game.
+*/
+#memory-game {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.card.flip .front-face {
+  transform: rotateY(0deg);
+}
+
+.card.flip .back-face {
+  transform: rotateY(180deg);
+}
+
+.card .front-face,
+.card .back-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  transition: transform 0.6s;
+}
+
+.card .front-face {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+.card .front-face img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.card .back-face {
+  background-color: #007bff;
+  transform: rotateY(0deg);
+}
+
+/* 
+    Puzzle Solver Game Styling 
+    - Styles specific to the Puzzle Solver Game.
+*/
+#puzzle-game {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#puzzle-canvas {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+#puzzle-controls {
+  margin-top: 15px;
+}
+
+#puzzle-controls button {
+  margin: 0 10px;
+}
+
+/* 
+    Text-to-Speech Section Styling 
+    - Styles specific to the Text-to-Speech controls.
+*/
+#tts-section {
+  text-align: center;
+}
+
+#tts-section button {
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+#voiceSelect {
+  margin-top: 10px;
+  padding: 8px;
+  font-size: 1em;
+}
+
+/* 
+    Additional Features Styling 
+    - Styles for speech-to-text, highlighting, dictionary, and other features.
+*/
+#additional-features-section button {
+  margin: 10px 5px;
+  padding: 10px 15px;
+}
+
+#dictionary-section {
+  margin-top: 20px;
+}
+
+#dictionary-section input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#dictionary-section button {
+  padding: 10px 15px;
+}
+
+#definition-display {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#progress-tracker {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#progress-tracker p {
+  margin: 5px 0;
+}
+
+#brightness {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+/* 
+    User Profile Buttons Styling 
+    - Styles for saving and loading user preferences.
+*/
+#user-profile button {
+  margin: 10px 5px;
+  padding: 10px 15px;
+}
+
+/* 
+    Simplified Layout Buttons Styling 
+    - Styles for toggling between simple and default layouts.
+*/
+#simplified-layout,
+#default-layout {
+  padding: 10px 15px;
+  margin: 10px 5px;
+}
+
+/* 
+    Responsive Design 
+    - Adjusts styles for smaller screens to ensure usability on mobile devices.
+*/
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  section h2 {
+    font-size: 1.5em;
+  }
+
+  #bookDisplay {
+    height: 300px;
+  }
+
+  input[type="file"],
+  input[type="color"],
+  input[type="range"],
+  select,
+  input[type="text"],
+  button {
+    max-width: 100%; /* Allows elements to take full width on small screens */
+  }
+
+  #memory-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #puzzle-canvas {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* 
+    Accessibility Enhancements 
+    - Focus states and visual cues for better keyboard navigation.
+*/
+button:focus,
+input:focus,
+select:focus,
+.slider:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* 
+    Tooltip Styling 
+    - Provides hover tooltips for buttons.
+*/
+button[aria-label]:hover::after {
+  content: attr(aria-label);
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  top: -30px;
+  white-space: nowrap;
+  font-size: 0.8em;
+}
+
+/* 
+    Animations 
+    - Smooth transitions and animations for interactive elements.
+*/
+button {
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.card.flip .front-face {
+  transform: rotateY(0deg);
+}
+
+.card.flip .back-face {
+  transform: rotateY(180deg);
+}
+
+.card {
+  transition: transform 0.6s;
+}
+
+/* 
+    Scrollbar Styling 
+    - Customizes the appearance of scrollbars for better aesthetics.
+*/
+#bookDisplay::-webkit-scrollbar {
+  width: 10px;
+}
+
+#bookDisplay::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+#bookDisplay::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+#bookDisplay::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 
+    Button Disabled State 
+    - Styles for disabled buttons.
+*/
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:disabled:hover::after {
+  content: "";
+}
